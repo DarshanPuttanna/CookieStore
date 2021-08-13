@@ -1,8 +1,8 @@
-#***Problem Statement***:
+# ***Problem Statement***:
 
-##***Given a cookie log file in the following format***:
+## ***Given a cookie log file in the following format***:
 
-###cookie,timestamp:
+### cookie,timestamp:
 * AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00
 * SAZuXPGUrfbcn5UA,2018-12-09T10:13:00+00:00
 * 5UAVanZf6UtGyKVS,2018-12-09T07:25:00+00:00
@@ -14,7 +14,7 @@
 
 ## ***Write a command line program in your preferred language to process the log file and return the most active cookie for specified day. The example below shows how we'll execute your program.***
 
-##***Assumptions***:
+## ***Assumptions***:
 
 * If multiple cookies meet that criteria, please return all of them on separate lines. 
 * Please only use additional libraries for testing, logging and cli-parsing. There are libraries for most languages which make this too easy (e.g pandas) and we�d like you to show off your coding skills. 
@@ -30,7 +30,7 @@
 * To run unittest cases - Usage: $ python -m unittest tests/testCookieSearch.py
 * To check coverage - Usage: $ coverage run -m unittest tests/testCookieSearch.py && coverage report
 
-##Code Reference:
+## ***Code Reference***:
 
 * ***mostVisitedCookie***: This file is the entry point for this project. For the given query date all the cookie id in the csv file is processed.
 * ***cookieStore***:  Initially processed data will be written into cookie store. Then most visited cookies are retrieved for the given query date.
