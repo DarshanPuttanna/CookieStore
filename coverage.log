@@ -1,0 +1,7 @@
+Name                        Stmts   Miss  Cover
+-----------------------------------------------
+cookieStore.py                 27      0   100%
+mostVisitedCookie.py           54     14    74%
+tests\testCookieSearch.py      83      1    99%
+-----------------------------------------------
+TOTAL                         164     15    91%
