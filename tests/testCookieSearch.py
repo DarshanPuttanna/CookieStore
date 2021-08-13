@@ -5,7 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 
-from CookieStore import CookieStore, DateStore
+from cookieStore import CookieStore, DateStore
 from io import StringIO
 
 
@@ -72,7 +72,7 @@ class TestCookieStore(unittest.TestCase):
         test_curr_date = '2018-12-07'
         test_cookie_id = 'testcookieid'
         test_cookie_store = CookieStore()
-        with patch('CookieStore.DateStore') as mock_datestore:
+        with patch('cookieStore.DateStore') as mock_datestore:
             mock_instance = mock_datestore.return_value
             test_cookie_store.write_cookie_id_to_cookie_store(test_curr_date, test_cookie_id)
             mock_datestore.assert_called_once_with(test_curr_date)
@@ -82,7 +82,7 @@ class TestCookieStore(unittest.TestCase):
         test_curr_date = '2018-12-07'
         test_cookie_id = 'testcookieid'
         test_cookie_store = CookieStore()
-        with patch('CookieStore.DateStore') as mock_datestore:
+        with patch('cookieStore.DateStore') as mock_datestore:
             mock_instance = mock_datestore.return_value
             test_cookie_store.dateVisited[test_curr_date] = mock_instance
             test_cookie_store.get_most_visited_cookie_for_given_date(test_curr_date)

@@ -1,11 +1,12 @@
 import csv
-from CookieStore import CookieStore
+from cookieStore import CookieStore
 import argparse
 import sys
 import pathlib
 
 
 def get_first_index_for_date(cookie_list, req_date):
+    """ Returns the first index of required date in the cookie list using binary search. """
     left = 0
     right = len(cookie_list) - 1
 
@@ -26,6 +27,7 @@ def get_first_index_for_date(cookie_list, req_date):
 
 
 def process_cookie_search(file_name, query_date):
+    """ Fetch data from csv file from first, till last index of the query date. """
     if not pathlib.Path(file_name).exists():
         raise Exception("File not found. Please pass a valid csv file to process")
     with open(file_name) as file:
@@ -39,7 +41,7 @@ def process_cookie_search(file_name, query_date):
             if curr_date < query_date:
                 break
             cookie_id = row[0].strip()
-            cookie_list.append([cookie_id, curr_date])
+            cookie_list.append([cookie_id, curr_date])  # listing cookie id and date
 
         first_index_of_required_date = get_first_index_for_date(cookie_list, query_date)
 
@@ -50,8 +52,10 @@ def process_cookie_search(file_name, query_date):
 
         most_visited_cookies = cookie_store.get_most_visited_cookie_for_given_date(query_date)
         return most_visited_cookies
-   
+
+
 def parse_args(args):
+    """ Retrieves query date from the input command. """
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', type=str, help='query date')
     parsed_args = parser.parse_args(args)
@@ -61,6 +65,7 @@ def parse_args(args):
 
 
 if __name__ == '__main__':
+    """ Displays the most visited cookies. """
     if len(sys.argv) != 4:
         raise Exception("Invalid command. Usage $ python mostVisitedCookie.py <filename> -d <query_date>")
     filename = sys.argv[1].strip()
